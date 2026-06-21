@@ -51,4 +51,28 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = `mailto:ddem3d@gmail.com?subject=${subject}&body=${body}`;
     });
   }
+
+  // Parallax del fondo del hero
+  const parallaxEl = document.querySelector('[data-parallax]');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (parallaxEl && !prefersReducedMotion) {
+    const speed = 0.35; // 0 = fijo, 1 = se mueve igual que el scroll
+    let ticking = false;
+
+    const updateParallax = () => {
+      const offset = window.scrollY * speed;
+      parallaxEl.style.transform = `translateY(${offset}px)`;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      // Solo merece la pena calcular mientras el hero esté cerca del viewport
+      if (window.scrollY > window.innerHeight * 1.5) return;
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 });
