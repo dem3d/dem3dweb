@@ -502,11 +502,89 @@ a { color: inherit; }
   text-align: left;
 }
 
+.swatch-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
 .material-card .swatch {
   width: 36px;
   height: 36px;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.material-card .swatch:hover,
+.material-card .swatch:focus-visible {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 3px rgba(34, 85, 168, 0.18);
+  outline: none;
+}
+
+.material-card .swatch::after {
+  content: "+";
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.swatch-wrap.is-open .swatch::after {
+  transform: rotate(45deg);
+}
+
+.color-popover {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  width: 168px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px rgba(26, 37, 51, 0.14);
+  padding: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 20;
+}
+
+.color-popover::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+
+.swatch-wrap.is-open .color-popover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .material-card h3 {
@@ -535,6 +613,39 @@ a { color: inherit; }
   background: var(--bg-alt);
   padding: 3px 7px;
   border-radius: 3px;
+}
+
+.color-dot {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  cursor: default;
+}
+
+.color-dot::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 5;
+}
+
+.color-dot:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .machines {

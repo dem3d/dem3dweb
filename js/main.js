@@ -52,6 +52,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Desplegable de colores (clic en el cuadrado de color)
+  const swatchButtons = document.querySelectorAll('.material-card .swatch');
+
+  const closeAllSwatches = (except) => {
+    document.querySelectorAll('.swatch-wrap.is-open').forEach(wrap => {
+      if (wrap !== except) {
+        wrap.classList.remove('is-open');
+        wrap.querySelector('.swatch').setAttribute('aria-expanded', 'false');
+      }
+    });
+  };
+
+  swatchButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wrap = btn.closest('.swatch-wrap');
+      const isOpen = wrap.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      closeAllSwatches(isOpen ? wrap : null);
+    });
+  });
+
+  document.addEventListener('click', () => closeAllSwatches(null));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllSwatches(null);
+  });
+
   // Parallax del fondo del hero
   const parallaxEl = document.querySelector('[data-parallax]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
