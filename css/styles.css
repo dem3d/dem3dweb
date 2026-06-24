@@ -439,15 +439,17 @@ a { color: inherit; }
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--white);
-  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-item img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform 0.4s ease;
+  flex-shrink: 0;
 }
 
 .gallery-item:hover img {
@@ -455,33 +457,22 @@ a { color: inherit; }
 }
 
 .gallery-item .tag {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: rgba(26, 37, 51, 0.78);
-  color: var(--white);
-  padding: 4px 9px;
-  border-radius: 3px;
+  display: none;
 }
 
 .gallery-item .caption {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 0.75rem 1rem;
-  background: linear-gradient(to top, rgba(26, 37, 51, 0.85), transparent);
-  color: var(--white);
-  font-size: 0.85rem;
+  display: block;
+  padding: 0.45rem 0.8rem;
+  background: #4a5568;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
   font-weight: 500;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
-.gallery-item:hover .caption {
-  opacity: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 0 0 var(--radius) var(--radius);
 }
 
 .gallery-item[data-cat] { display: block; }
@@ -490,7 +481,7 @@ a { color: inherit; }
 /* ---------- Materiales / Máquinas ---------- */
 .materials-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 }
 
@@ -503,88 +494,28 @@ a { color: inherit; }
 }
 
 .swatch-wrap {
-  position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
   margin-bottom: 1rem;
 }
 
 .material-card .swatch {
-  width: 36px;
-  height: 36px;
-  border-radius: 4px;
-  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  border: 2px solid var(--line);
   padding: 0;
   display: block;
-  cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.material-card .swatch:hover,
-.material-card .swatch:focus-visible {
-  transform: scale(1.06);
-  box-shadow: 0 0 0 3px rgba(34, 85, 168, 0.18);
-  outline: none;
-}
-
-.material-card .swatch::after {
-  content: "+";
-  position: absolute;
-  bottom: -6px;
-  right: -6px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 1px solid var(--line);
-  color: var(--ink-soft);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 14px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.swatch-wrap.is-open .swatch::after {
-  transform: rotate(45deg);
+  cursor: default;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
 .color-popover {
-  position: absolute;
-  top: calc(100% + 12px);
-  left: 0;
-  width: 168px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 28px rgba(26, 37, 51, 0.14);
-  padding: 0.65rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  opacity: 0;
-  transform: translateY(-6px);
-  pointer-events: none;
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  z-index: 20;
-}
-
-.color-popover::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 12px;
-  width: 10px;
-  height: 10px;
-  background: var(--white);
-  border-left: 1px solid var(--line);
-  border-top: 1px solid var(--line);
-  transform: rotate(45deg);
-}
-
-.swatch-wrap.is-open .color-popover {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  gap: 0.4rem;
 }
 
 .material-card h3 {
@@ -617,25 +548,36 @@ a { color: inherit; }
 
 .color-dot {
   position: relative;
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  cursor: default;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.color-dot:hover {
+  transform: scale(1.18);
+}
+
+.color-dot.is-selected {
+  border-color: var(--ink) !important;
+  box-shadow: 0 0 0 2px var(--white), 0 0 0 3.5px var(--ink);
 }
 
 .color-dot::after {
   content: attr(data-name);
   position: absolute;
-  bottom: calc(100% + 9px);
+  bottom: calc(100% + 7px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
   background: var(--ink);
   color: var(--white);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   white-space: nowrap;
-  padding: 4px 8px;
+  padding: 3px 7px;
   border-radius: 4px;
   opacity: 0;
   pointer-events: none;
@@ -1077,3 +1019,302 @@ button:focus-visible {
     animation: none !important;
   }
 }
+
+/* ---------- Carrusel de galería ---------- */
+.gallery-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--surface);
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background 0.2s;
+}
+
+.carousel-prev { left: 10px; }
+.carousel-next { right: 10px; }
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  transition: background 0.2s;
+}
+
+.carousel-dot.active {
+  background: #fff;
+  border-color: rgba(0,0,0,0.35);
+}
+
+/* Asegurar que el gallery-item con carrusel no aplique img directo */
+.gallery-item:has(.gallery-carousel) > img { display: none; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.88);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+  cursor: default;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lightbox-close:hover { opacity: 1; }
+
+/* Cursor en imágenes de galería */
+.gallery-item img,
+.carousel-slide {
+  cursor: zoom-in;
+}
+
+/* ---------- Lightbox — navegación ---------- */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+/* Imagen con objeto completo visible (sin recorte) */
+.gallery-item img.img-contain {
+  object-fit: contain;
+  background: #f5f5f5;
+  padding: 8px;
+}
+
+/* ---------- Galería — items de vídeo ---------- */
+.gallery-item--video .gallery-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #111;
+  cursor: pointer;
+}
+
+.gallery-video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.gallery-item--video:hover .gallery-video-play {
+  opacity: 0.8;
+}
+
+/* ---------- Lightbox — vídeo ---------- */
+.lightbox-video {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: rgba(0,0,0,0.92);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox-video.open {
+  display: flex;
+}
+
+.lightbox-video video {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--radius);
+  cursor: default;
+  outline: none;
+}
+
+.lightbox-video .lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.lightbox-video .lightbox-close:hover { opacity: 1; }
+
+.lightbox-video .lightbox-prev,
+.lightbox-video .lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.lightbox-video .lightbox-prev { left: 20px; }
+.lightbox-video .lightbox-next { right: 20px; }
+
+.lightbox-video .lightbox-prev:hover,
+.lightbox-video .lightbox-next:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.lightbox-video .lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+}
+
+

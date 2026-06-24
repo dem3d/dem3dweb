@@ -3,8 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galería — DEM3D</title>
-  <meta name="description" content="Galería de piezas impresas en 3D: prototipos, piezas funcionales, repuestos y proyectos personalizados.">
+  <title>Galería de trabajos | DEM3D Impresión 3D Valencia</title>
+  <meta name="description" content="Trabajos reales de impresión 3D: repuestos para máquinas de coser, engranajes de sierra, soportes GPS, sellos cerámicos y más. Ver galería de DEM3D.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dem3d.es/galeria.html">
+  <meta name="geo.region" content="ES-VC">
+  <meta name="geo.placename" content="Valencia">
+  <meta name="language" content="es">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dem3d.es/galeria.html">
+  <meta property="og:title" content="Galería de piezas impresas en 3D — DEM3D">
+  <meta property="og:description" content="Trabajos reales de impresión 3D: repuestos para máquinas de coser, engranajes de sierra, soportes GPS, sellos cerámicos y más. Ver galería de DEM3D.">
+  <meta property="og:image" content="https://dem3d.es/images/hero-printer.jpg">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="DEM3D">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Galería de piezas impresas en 3D — DEM3D">
+  <meta name="twitter:description" content="Trabajos reales de impresión 3D: repuestos para máquinas de coser, engranajes de sierra, soportes GPS, sellos cerámicos y más. Ver galería de DEM3D.">
+  <meta name="twitter:image" content="https://dem3d.es/images/hero-printer.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -44,66 +64,84 @@
 
       <div class="gallery-filters" role="group" aria-label="Filtrar galería por categoría">
         <button class="filter-btn active" data-filter="all">Todo</button>
-        <button class="filter-btn" data-filter="prototipos">Prototipos</button>
-        <button class="filter-btn" data-filter="funcionales">Piezas funcionales</button>
-        <button class="filter-btn" data-filter="utillaje">Utillaje &amp; taller</button>
+        <button class="filter-btn" data-filter="prototipos">Piezas funcionales</button>
         <button class="filter-btn" data-filter="personalizado">Personalizado</button>
+        <button class="filter-btn" data-filter="diseno">Diseño</button>
       </div>
 
       <div class="gallery-grid">
 
         <div class="gallery-item" data-cat="prototipos">
-          <img src="images/hero-printer.jpg" alt="Impresora 3D Sidewinder X2 imprimiendo una pieza">
-          <span class="tag">Prototipo</span>
-          <span class="caption">Impresora en marcha — PLA</span>
-        </div>
-
-        <div class="gallery-item" data-cat="funcionales">
-          <img src="https://images.unsplash.com/photo-1646155832638-89eb6356c9f1?q=80&w=600&auto=format&fit=crop" alt="Pieza funcional impresa en PETG">
-          <span class="tag">Funcional</span>
-          <span class="caption">Soporte técnico — PETG</span>
-        </div>
-
-        <div class="gallery-item" data-cat="utillaje">
-          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=600&auto=format&fit=crop" alt="Utillaje de taller impreso en 3D">
-          <span class="tag">Utillaje</span>
-          <span class="caption">Jig de taller — ABS</span>
+          <div class="gallery-carousel" aria-label="Carrusel de imágenes">
+            <div class="carousel-track">
+              <img src="images/engranajes-sierra-nuevos.png" alt="Reconstrucción de engranajes de sierra — engranajes nuevos impresos en 3D" class="carousel-slide active">
+              <img src="images/engranajes-sierra-originales.png" alt="Reconstrucción de engranajes de sierra — engranajes originales desgastados" class="carousel-slide">
+            </div>
+            <button class="carousel-prev" aria-label="Imagen anterior">&#8249;</button>
+            <button class="carousel-next" aria-label="Imagen siguiente">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
+          <span class="caption">Reconstrucción de engranajes de sierra — ABS</span>
         </div>
 
         <div class="gallery-item" data-cat="personalizado">
-          <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=600&auto=format&fit=crop" alt="Pieza personalizada impresa en TPU">
-          <span class="tag">Personalizado</span>
-          <span class="caption">Pieza flexible — TPU</span>
+          <div class="gallery-carousel" aria-label="Carrusel de imágenes">
+            <div class="carousel-track">
+              <img src="images/sello-ceramica-uso.png" alt="Sello personalizado para cerámica — sello usado en arcilla" class="carousel-slide active">
+              <img src="images/sello-ceramica-pieza.png" alt="Sello personalizado para cerámica — sello impreso en 3D" class="carousel-slide">
+            </div>
+            <button class="carousel-prev" aria-label="Imagen anterior">&#8249;</button>
+            <button class="carousel-next" aria-label="Imagen siguiente">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
+          <span class="caption">Sello personalizado para cerámica — PLA</span>
+        </div>
+
+        <div class="gallery-item" data-cat="personalizado">
+          <img src="images/caja-egipcia.png" alt="Caja egipcia impresa en 3D" class="img-contain">
+          <span class="caption">Caja egipcia — PLA</span>
         </div>
 
         <div class="gallery-item" data-cat="prototipos">
-          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=600&auto=format&fit=crop" alt="Prototipo de carcasa impreso en 3D">
-          <span class="tag">Prototipo</span>
-          <span class="caption">Carcasa de prototipo — PLA</span>
+          <div class="gallery-carousel" aria-label="Carrusel de imágenes">
+            <div class="carousel-track">
+              <img src="images/prototipo-maquina-coser-pieza.png" alt="Reparación a medida para máquina de coser — pieza suelta" class="carousel-slide active">
+              <img src="images/prototipo-maquina-coser-montado.png" alt="Reparación a medida para máquina de coser — pieza montada en máquina" class="carousel-slide">
+            </div>
+            <button class="carousel-prev" aria-label="Imagen anterior">&#8249;</button>
+            <button class="carousel-next" aria-label="Imagen siguiente">&#8250;</button>
+            <div class="carousel-dots">
+              <span class="carousel-dot active"></span>
+              <span class="carousel-dot"></span>
+            </div>
+          </div>
+          <span class="caption">Reparación a medida para máquina de coser — PLA</span>
         </div>
 
-        <div class="gallery-item" data-cat="funcionales">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=600&auto=format&fit=crop" alt="Engranaje funcional impreso en 3D">
-          <span class="tag">Funcional</span>
-          <span class="caption">Engranaje — PETG</span>
-        </div>
-
-        <div class="gallery-item" data-cat="utillaje">
-          <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?q=80&w=600&auto=format&fit=crop" alt="Soporte de herramientas impreso en 3D">
-          <span class="tag">Utillaje</span>
-          <span class="caption">Organizador de herramientas — ABS</span>
-        </div>
-
-        <div class="gallery-item" data-cat="personalizado">
-          <img src="https://images.unsplash.com/photo-1611339555312-e607c8352fd7?q=80&w=600&auto=format&fit=crop" alt="Figura personalizada impresa en 3D">
-          <span class="tag">Personalizado</span>
-          <span class="caption">Pieza decorativa a medida — PLA</span>
+        <div class="gallery-item" data-cat="prototipos">
+          <img src="images/soporte-gps-naval.png" alt="Soporte para GPS naval impreso en 3D">
+          <span class="caption">Soporte para GPS naval — PLA</span>
         </div>
 
         <div class="gallery-item" data-cat="prototipos">
           <img src="images/gallery-prototipo-mecanico.jpg" alt="Organizador de escritorio con soporte para celular impreso en PETG">
-          <span class="tag">Prototipo</span>
           <span class="caption">Organizador de escritorio — PETG</span>
+        </div>
+
+        <div class="gallery-item gallery-item--video" data-cat="diseno">
+          <div class="gallery-video-wrap">
+            <video class="gallery-video-thumb" src="images/diseno-01.mov" muted loop playsinline preload="metadata"></video>
+            <button class="gallery-video-play" aria-label="Ver vídeo ampliado">
+              <svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="12" r="12" fill="rgba(0,0,0,0.45)"/><polygon points="10,8 18,12 10,16" fill="#fff"/></svg>
+            </button>
+          </div>
+          <span class="caption">Diseño 3D — Fusión 360</span>
         </div>
 
       </div>
@@ -149,6 +187,172 @@
     </div>
   </footer>
 
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar">&#x2715;</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Imagen anterior">&#8249;</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-next" id="lightbox-next" aria-label="Imagen siguiente">&#8250;</button>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+
+  <!-- Lightbox vídeo -->
+  <div class="lightbox-video" id="lightbox-video" role="dialog" aria-modal="true" aria-label="Vídeo ampliado">
+    <button class="lightbox-close" id="lbv-close" aria-label="Cerrar">&#x2715;</button>
+    <button class="lightbox-prev" id="lbv-prev" aria-label="Vídeo anterior">&#8249;</button>
+    <video id="lbv-player" controls playsinline></video>
+    <button class="lightbox-next" id="lbv-next" aria-label="Vídeo siguiente">&#8250;</button>
+    <div class="lightbox-counter" id="lbv-counter"></div>
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    // --- Lista global de imágenes (para lightbox de fotos) ---
+    var allImages = [];
+    document.querySelectorAll('.gallery-item:not(.gallery-item--video)').forEach(function(item) {
+      var carousel = item.querySelector('.gallery-carousel');
+      if (carousel) {
+        carousel.querySelectorAll('.carousel-slide').forEach(function(slide) {
+          allImages.push({ src: slide.src, alt: slide.alt });
+        });
+      } else {
+        var img = item.querySelector('img');
+        if (img) allImages.push({ src: img.src, alt: img.alt });
+      }
+    });
+
+    // --- Lista global de vídeos ---
+    var allVideos = [];
+    document.querySelectorAll('.gallery-item--video').forEach(function(item) {
+      var thumb = item.querySelector('.gallery-video-thumb');
+      var caption = item.querySelector('.caption');
+      if (thumb) allVideos.push({ src: thumb.src, label: caption ? caption.textContent : '' });
+    });
+
+    // --- Carrusel de fotos ---
+    document.querySelectorAll('.gallery-carousel').forEach(function(carousel) {
+      const slides = carousel.querySelectorAll('.carousel-slide');
+      const dots   = carousel.querySelectorAll('.carousel-dot');
+      let current  = 0;
+      function goTo(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      carousel.querySelector('.carousel-next').addEventListener('click', function(e) { e.stopPropagation(); goTo(current + 1); });
+      carousel.querySelector('.carousel-prev').addEventListener('click', function(e) { e.stopPropagation(); goTo(current - 1); });
+      dots.forEach(function(dot, i) { dot.addEventListener('click', function(e) { e.stopPropagation(); goTo(i); }); });
+      carousel.addEventListener('click', function() {
+        var active = carousel.querySelector('.carousel-slide.active');
+        if (active) openLightbox(active.src, active.alt);
+      });
+    });
+
+    // --- Autoplay en hover de miniaturas de vídeo ---
+    document.querySelectorAll('.gallery-video-wrap').forEach(function(wrap) {
+      var vid = wrap.querySelector('.gallery-video-thumb');
+      wrap.addEventListener('mouseenter', function() { vid.play(); });
+      wrap.addEventListener('mouseleave', function() { vid.pause(); vid.currentTime = 0; });
+    });
+
+    // --- Lightbox FOTOS ---
+    var lightbox      = document.getElementById('lightbox');
+    var lightboxImg   = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+    var lightboxPrev  = document.getElementById('lightbox-prev');
+    var lightboxNext  = document.getElementById('lightbox-next');
+    var lightboxCounter = document.getElementById('lightbox-counter');
+    var lbIndex = 0;
+
+    function openLightbox(src, alt) {
+      var idx = allImages.findIndex(function(im) { return im.src === src; });
+      lbIndex = idx >= 0 ? idx : 0;
+      showLightboxImage();
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLightboxImage() {
+      var im = allImages[lbIndex];
+      lightboxImg.src = im.src;
+      lightboxImg.alt = im.alt || '';
+      lightboxCounter.textContent = (lbIndex + 1) + ' / ' + allImages.length;
+      lightboxPrev.style.display = allImages.length > 1 ? '' : 'none';
+      lightboxNext.style.display = allImages.length > 1 ? '' : 'none';
+    }
+    function lbGo(dir) {
+      lbIndex = (lbIndex + dir + allImages.length) % allImages.length;
+      showLightboxImage();
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-item:not(.gallery-item--video) > img').forEach(function(img) {
+      img.addEventListener('click', function() { openLightbox(img.src, img.alt); });
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', function(e) { e.stopPropagation(); lbGo(-1); });
+    lightboxNext.addEventListener('click', function(e) { e.stopPropagation(); lbGo(1); });
+    lightbox.addEventListener('click', function(e) { if (e.target === lightbox) closeLightbox(); });
+
+    // --- Lightbox VÍDEOS ---
+    var lbVideo    = document.getElementById('lightbox-video');
+    var lbvPlayer  = document.getElementById('lbv-player');
+    var lbvClose   = document.getElementById('lbv-close');
+    var lbvPrev    = document.getElementById('lbv-prev');
+    var lbvNext    = document.getElementById('lbv-next');
+    var lbvCounter = document.getElementById('lbv-counter');
+    var lbvIndex   = 0;
+
+    function openVideoLightbox(idx) {
+      lbvIndex = idx;
+      showLbVideo();
+      lbVideo.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLbVideo() {
+      lbvPlayer.src = allVideos[lbvIndex].src;
+      lbvPlayer.load();
+      lbvPlayer.play();
+      lbvCounter.textContent = allVideos.length > 1 ? (lbvIndex + 1) + ' / ' + allVideos.length : '';
+      lbvPrev.style.display = allVideos.length > 1 ? '' : 'none';
+      lbvNext.style.display = allVideos.length > 1 ? '' : 'none';
+    }
+    function closeVideoLightbox() {
+      lbvPlayer.pause();
+      lbvPlayer.src = '';
+      lbVideo.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function lbvGo(dir) {
+      lbvIndex = (lbvIndex + dir + allVideos.length) % allVideos.length;
+      showLbVideo();
+    }
+
+    document.querySelectorAll('.gallery-item--video .gallery-video-wrap').forEach(function(wrap, i) {
+      wrap.addEventListener('click', function() { openVideoLightbox(i); });
+    });
+    lbvClose.addEventListener('click', closeVideoLightbox);
+    lbvPrev.addEventListener('click', function(e) { e.stopPropagation(); lbvGo(-1); });
+    lbvNext.addEventListener('click', function(e) { e.stopPropagation(); lbvGo(1); });
+    lbVideo.addEventListener('click', function(e) { if (e.target === lbVideo) closeVideoLightbox(); });
+
+    // Teclado — ambos lightboxes
+    document.addEventListener('keydown', function(e) {
+      if (lightbox.classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') lbGo(-1);
+        if (e.key === 'ArrowRight') lbGo(1);
+      }
+      if (lbVideo.classList.contains('open')) {
+        if (e.key === 'Escape') closeVideoLightbox();
+        if (e.key === 'ArrowLeft') lbvGo(-1);
+        if (e.key === 'ArrowRight') lbvGo(1);
+      }
+    });
+  </script>
 </body>
 </html>

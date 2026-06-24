@@ -52,31 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Desplegable de colores (clic en el cuadrado de color)
-  const swatchButtons = document.querySelectorAll('.material-card .swatch');
+  // Selector de color: click en bola cambia el swatch
+  document.querySelectorAll('.swatch-wrap').forEach(wrap => {
+    const swatch = wrap.querySelector('.swatch');
+    const dots = wrap.querySelectorAll('.color-dot');
 
-  const closeAllSwatches = (except) => {
-    document.querySelectorAll('.swatch-wrap.is-open').forEach(wrap => {
-      if (wrap !== except) {
-        wrap.classList.remove('is-open');
-        wrap.querySelector('.swatch').setAttribute('aria-expanded', 'false');
-      }
+    // Marcar el primero como seleccionado por defecto
+    if (dots.length) dots[0].classList.add('is-selected');
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        // Actualizar color del swatch
+        swatch.style.background = dot.style.background;
+        // Actualizar selección
+        dots.forEach(d => d.classList.remove('is-selected'));
+        dot.classList.add('is-selected');
+      });
     });
-  };
-
-  swatchButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const wrap = btn.closest('.swatch-wrap');
-      const isOpen = wrap.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      closeAllSwatches(isOpen ? wrap : null);
-    });
-  });
-
-  document.addEventListener('click', () => closeAllSwatches(null));
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAllSwatches(null);
   });
 
   // Parallax del fondo del hero
