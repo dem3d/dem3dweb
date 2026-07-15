@@ -1,26 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://dem3d.es/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://dem3d.es/images/hero-printer.jpg</image:loc>
+      <image:title>Impresora 3D DEM3D en el taller de Valencia</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://dem3d.es/galeria.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://dem3d.es/images/caja-egipcia.png</image:loc>
+      <image:title>Caja egipcia impresa en 3D — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/engranajes-sierra-nuevos.png</image:loc>
+      <image:title>Engranajes de sierra impresos en 3D — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/engranajes-sierra-originales.png</image:loc>
+      <image:title>Engranajes de sierra originales — pieza de referencia DEM3D</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/gallery-prototipo-mecanico.jpg</image:loc>
+      <image:title>Prototipo mecánico impreso en 3D — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/prototipo-maquina-coser-montado.png</image:loc>
+      <image:title>Repuesto de máquina de coser montado — impresión 3D DEM3D</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/prototipo-maquina-coser-pieza.png</image:loc>
+      <image:title>Pieza de repuesto para máquina de coser — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/sello-ceramica-pieza.png</image:loc>
+      <image:title>Sello de cerámica impreso en 3D — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/sello-ceramica-uso.png</image:loc>
+      <image:title>Sello de cerámica en uso — DEM3D Valencia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://dem3d.es/images/soporte-gps-naval.png</image:loc>
+      <image:title>Soporte GPS naval impreso en 3D — DEM3D Valencia</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://dem3d.es/materiales.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dem3d.es/contacto.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
