@@ -930,6 +930,14 @@ a { color: inherit; }
   margin: 0;
 }
 
+.gallery-note {
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 880px) {
   .header-right {
@@ -1197,6 +1205,12 @@ button:focus-visible {
 
 /* Imagen con objeto completo visible (sin recorte) */
 .gallery-item img.img-contain {
+  object-fit: contain;
+  background: #f5f5f5;
+  padding: 8px;
+}
+
+.carousel-slide.img-contain {
   object-fit: contain;
   background: #f5f5f5;
   padding: 8px;
